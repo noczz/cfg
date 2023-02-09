@@ -1,0 +1,188 @@
+" 20221026-NoCz
+" Befor use the vimrc file, you should set up the ctags and vundle
+
+" MINE
+
+"	set nocompatible    "取消vi兼容
+
+	set undodir=~/.vim/undodir  "恢复文件目录
+	set undofile        "恢复文件
+
+	set showcmd         "NORMAL模式下，在命令行右下角显示输入的指令
+	set wildmenu		"补全菜单
+	set ruler
+	set spell
+	set autowrite       "自动保存
+	set noshowmode      "不显示当前模式
+"	set guioptions-=T           " 隐藏工具栏
+"	set guioptions-=m           " 隐藏菜单栏
+"	set laststatus=2   " Always show the statusline
+	syntax on           "语法高亮
+	set list            "显示空白字符
+
+	set termguicolors       "256控制台配色支持
+	set t_Co=256            "Vim256色
+	
+	set number
+	set relativenumber
+"	set cursorline
+"	set cursorcolumn
+	set nowrap             " 不换行显示行尾
+"	set nowrapscan
+"	set scrolloff=10		"于屏幕边界10行立即翻滚
+	set foldmethod=marker
+	
+	
+	set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+	set termencoding=utf-8
+	set encoding=utf-8
+	
+	set tabstop=4
+	set softtabstop=4
+	set shiftwidth=4
+"	set noexpandtab
+	
+	set incsearch
+	set hlsearch
+	
+	set list
+	set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$       "按设定显示控制字符串
+	set backspace=indent,eol,start      "使回格键（backspace）正常处理indent, eol, start等
+
+"===================================================================================================
+" Map
+
+	map <F2> :NERDTreeToggle<CR>
+	map <F3> :TagbarToggle<CR>
+	map <F4> :GitGutter<CR>
+	map <F5> :vert ter<CR>
+	nmap <Space>m <Plug>(quickhl-manual-this)
+	xmap <Space>m <Plug>(quickhl-manual-this)
+	nmap <Space>M <Plug>(quickhl-manual-reset)
+	xmap <Space>M <Plug>(quickhl-manual-reset)
+
+	nmap <C-J> 10<C-W>-
+	nmap <C-K> 10<C-W>+
+	nmap <C-H> 10<C-W><
+	nmap <C-L> 10<C-W>>
+	imap `< <><ESC>i
+	imap `( ()<ESC>i
+	imap `[ []<ESC>i
+	imap `{ {<CR>}<ESC>ko
+	imap `' ''<ESC>i
+	imap `" ""<ESC>i
+
+	imap `p printf();<ESC>hi""<ESC>i\n<ESC>hi
+	imap `d #define 
+	imap `h #include <.h><ESC>F<a
+	imap `i #include ".h"<ESC>F"a
+	imap `t typedef struct {<CR>};<ESC>keea 
+	imap `f ()<CR>{<CR>}<ESC>kkI
+
+
+"===================================================================================================
+" Vundle
+
+"Set up Vundle:
+"
+"	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+"	set the runtime path to include Vundle and initialize
+	
+	filetype off
+		
+		set rtp+=~/.vim/bundle/Vundle.vim 
+		call vundle#begin()
+	
+			Plugin 'VundleVim/Vundle.vim'
+			Plugin 'preservim/nerdtree'
+			Plugin 'majutsushi/tagbar'
+			Plugin 'vim-airline/vim-airline'
+			Plugin 'morhetz/gruvbox'
+			Plugin 'airblade/vim-gitgutter'
+			Plugin 'justinmk/vim-syntax-extra'
+			Plugin 't9md/vim-quickhl'
+			Plugin 'rrethy/vim-illuminate'
+			Plugin 'xolox/vim-easytags'
+			Plugin 'xolox/vim-misc'
+"			Plugin 'rip-rip/clang_complete'
+"			Plugin 'andymass/vim-matchup'
+"			Plugin 'bfrg/vim-cpp-modern'
+"			Plugin 'othree/javascript-libraries-syntax.vim'
+"			Plugin 'posva/vim-vue'
+	
+		call vundle#end()
+	
+	filetype plugin indent on
+
+"===================================================================================================
+" Plugins
+"
+	" vim-airline
+	let g:airline_experimental = 1
+	let g:airline_detect_modified=1
+	let g:airline_detect_paste=1
+	let g:airline_detect_crypt=1
+	let g:airline_detect_spell=1
+	let g:airline_detect_spelllang=1
+	let g:airline_detect_iminsert=0
+	let g:airline_inactive_collapse=1
+	let g:airline_inactive_alt_sep=1
+
+	let g:airline_mode_map = {
+	    \ '__'     : '-',
+	    \ 'c'      : 'C',
+	    \ 'i'      : 'I',
+	    \ 'ic'     : 'I',
+	    \ 'ix'     : 'I',
+	    \ 'n'      : 'N',
+	    \ 'multi'  : 'M',
+	    \ 'ni'     : 'N',
+	    \ 'no'     : 'N',
+	    \ 'R'      : 'R',
+	    \ 'Rv'     : 'R',
+	    \ 's'      : 'S',
+	    \ 'S'      : 'S',
+	    \ ''     : 'S',
+	    \ 't'      : 'T',
+	    \ 'v'      : 'V',
+	    \ 'V'      : 'V',
+	    \ ''     : 'V',
+	    \ }
+
+	let g:airline_filetype_overrides = {
+	    \ 'coc-explorer':  [ 'CoC Explorer', '' ],
+	    \ 'defx':  ['defx', '%{b:defx.paths[0]}'],
+	    \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
+	    \ 'floggraph':  [ 'Flog', '%{get(b:, "flog_status_summary", "")}' ],
+	    \ 'gundo': [ 'Gundo', '' ],
+	    \ 'help':  [ 'Help', '%f' ],
+	    \ 'minibufexpl': [ 'MiniBufExplorer', '' ],
+	    \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERD'), '' ],
+	    \ 'startify': [ 'startify', '' ],
+	    \ 'vim-plug': [ 'Plugins', '' ],
+	    \ 'vimfiler': [ 'vimfiler', '%{vimfiler#get_status_string()}' ],
+	    \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
+	    \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
+	    \ }
+	let g:airline_skip_empty_sections = 1
+
+	let g:airline#extensions#tabline#enabled = 1
+	" powerline symbols
+	let g:airline_left_sep = ''
+	let g:airline_left_alt_sep = ''
+	let g:airline_right_sep = ''
+	let g:airline_right_alt_sep = ''
+
+	" gruvbox
+	let g:gruvbox_italic=1
+	colorscheme gruvbox
+"	set background=dark
+
+	" GitGutter
+	autocmd BufWritePost * GitGutter
+	function! GitStatus()
+	  let [a,m,r] = GitGutterGetHunkSummary()
+	  return printf('+%d ~%d -%d', a, m, r)
+	endfunction
+	set statusline+=%{GitStatus()}

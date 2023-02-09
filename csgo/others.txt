@@ -1,0 +1,7 @@
+mouse		ec2-b
+dpi		800
+sens		1.20
+edpi		960
+winsens		6
+resolution		1280x960(4:3)拉伸
+setup_option	 -novid -tickrate 128 -perfectworld -high -nojoy -freq 144 -w 1280 -h 960 +cl_interp 1 +cl_interp_ratio 2
