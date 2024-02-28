@@ -20,7 +20,6 @@
 
 " Vundle
 " ------
-
 	set nocompatible
 	filetype off
 
@@ -47,6 +46,8 @@
 " taglist
 " -------
 	nmap  <tab> :TlistToggle<CR>
+
 " vim-quikhl
+" ----------
 	nmap <Space>m <Plug>(quickhl-manual-this)
 	xmap <Space>m <Plug>(quickhl-manual-this)
