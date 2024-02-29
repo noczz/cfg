@@ -7,6 +7,7 @@
 	set relativenumber
 	set ruler
 	set autowrite
+	set showcmd
 
 "	set tabstop=2
 "	set shiftwidth=2
@@ -18,6 +19,16 @@
 	set incsearch
 	set tags=./tags
 
+" kep map
+
+	nmap <C-K> <C-W>+<CR>
+	nmap <C-J> <C-W>-<CR>
+	nmap <C-H> <C-W><<CR>
+	nmap <C-L> <C-W>><CR>
+
+	nmap <F2> :TagbarToggle<CR>
+	nmap <F3> :NERDTreeToggle<CR>
+
 " Vundle
 " ------
 	set nocompatible
@@ -27,27 +38,19 @@
 	call vundle#begin()
 
 		Plugin 'VundleVim/Vundle.vim'
-		Plugin 'tpope/vim-fugitive'
-		Plugin 't9md/vim-quickhl'
 		Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-		Plugin 'morhetz/gruvbox'
-		Plugin 'taglist.vim'
+		Plugin 'tpope/vim-fugitive'
 		Plugin 'airblade/vim-gitgutter'
+		Plugin 'morhetz/gruvbox'
+		Plugin 'yuttie/comfortable-motion.vim'
+		Plugin 'scrooloose/nerdtree'
+		Plugin 'majutsushi/tagbar'
 
 	call vundle#end()
 	filetype plugin indent on
 
 " gruvbox
 " -------
-	let g:gruvbox_italic=1
+	let g:gruvbox_italic=0
 	colorscheme gruvbox
 	set background=dark
-
-" taglist
-" -------
-	nmap  <tab> :TlistToggle<CR>
-
-" vim-quikhl
-" ----------
-	nmap <Space>m <Plug>(quickhl-manual-this)
-	xmap <Space>m <Plug>(quickhl-manual-this)
