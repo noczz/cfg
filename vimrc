@@ -1,33 +1,42 @@
-" vim
+" SET
 " ---
-
-"  set
-
 	set number
 	set relativenumber
 	set ruler
 	set autowrite
 	set showcmd
 
-"	set tabstop=2
-"	set shiftwidth=2
+	"set tabstop=2
+	"set shiftwidth=2
 
 	set list
 	set listchars=tab:\|\ ,trail:$,extends:>,precedes:<
 	set cursorline
-"	set cursorcolumn
+	"set cursorcolumn
 	set incsearch
 	set tags=./tags
+	set termwinsize=10x0	" {row}x{column}
+	set nowrap		" To display long lines as just one line
 
-" kep map
-
+" MAP
+" ---
 	nmap <C-K> <C-W>+<CR>
 	nmap <C-J> <C-W>-<CR>
 	nmap <C-H> <C-W><<CR>
 	nmap <C-L> <C-W>><CR>
 
-	nmap <F2> :TagbarToggle<CR>
-	nmap <F3> :NERDTreeToggle<CR>
+	nmap <F2>           :TagbarToggle<CR>
+	nmap <F3>           :NERDTreeToggle<CR>
+	nmap <TAB>          :set hls<CR>
+	nnoremap <TAB><TAB> :set nohls<CR>
+	nmap <F4>           :bo ter<CR>
+	nmap <F5>           :bufdo so ~/.vimrc<CR>
+
+	imap <> <><ESC>i
+	imap () ()<ESC>i
+	imap {} {}<ESC>i
+	inoremap '' ''<ESC>i
+	inoremap "" ""<ESC>i
 
 " Vundle
 " ------
@@ -51,6 +60,13 @@
 
 " gruvbox
 " -------
-	let g:gruvbox_italic=0
+	"let g:gruvbox_italic=0
 	colorscheme gruvbox
 	set background=dark
+
+" NOTE
+" ----
+"	[1]	When the cursor in terminal, press <C-W>N switch to edit mode
+"		and press i switch to normal mode in termnial.
+
+"	[2]	...
