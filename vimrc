@@ -25,8 +25,8 @@
 	nmap <C-H> <C-W><<CR>
 	nmap <C-L> <C-W>><CR>
 
-	nmap <F2>           :TagbarToggle<CR>
-	nmap <F3>           :NERDTreeToggle<CR>
+	nmap <F2>           :NERDTreeToggle<CR>
+	nmap <F3>           :TagbarToggle<CR>
 	nmap <TAB>          :set hls<CR>
 	nnoremap <TAB><TAB> :set nohls<CR>
 	nmap <F4>           :bo ter<CR>
@@ -34,9 +34,12 @@
 
 	imap <> <><ESC>i
 	imap () ()<ESC>i
+	imap [] []<ESC>i
 	imap {} {}<ESC>i
 	inoremap '' ''<ESC>i
 	inoremap "" ""<ESC>i
+	nnoremap <SPACE>; A;<ESC>
+
 
 " Vundle
 " ------
@@ -63,6 +66,8 @@
 	"let g:gruvbox_italic=0
 	colorscheme gruvbox
 	set background=dark
+	hi Normal guibg=NONE ctermbg=NONE
+
 
 " NOTE
 " ----
