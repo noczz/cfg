@@ -14,9 +14,11 @@
 	set cursorline
 	"set cursorcolumn
 	set incsearch
-	set tags=./tags
 	set termwinsize=10x0	" {row}x{column}
-	set nowrap		" To display long lines as just one line
+	"set nowrap		" To display long lines as just one line
+
+	":silent !ctags -R /usr/src/linux-headers-6.2.0-26-generic .
+	set tags=./tags
 
 " MAP
 " ---
