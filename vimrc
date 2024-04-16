@@ -22,10 +22,10 @@
 
 " MAP
 " ---
-	nmap <C-K> <C-W>+<CR>
-	nmap <C-J> <C-W>-<CR>
-	nmap <C-H> <C-W><<CR>
-	nmap <C-L> <C-W>><CR>
+	nmap <C-K> 5<C-W>+<CR>
+	nmap <C-J> 5<C-W>-<CR>
+	nmap <C-H> 5<C-W><<CR>
+	nmap <C-L> 5<C-W>><CR>
 
 	nmap <F2>           :NERDTreeToggle<CR>
 	nmap <F3>           :TagbarToggle<CR>
@@ -34,14 +34,9 @@
 	nmap <F4>           :bo ter<CR>
 	nmap <F5>           :bufdo so ~/.vimrc<CR>
 
-	imap <> <><ESC>i
-	imap () ()<ESC>i
-	imap [] []<ESC>i
-	imap {} {}<ESC>i
-	inoremap '' ''<ESC>i
-	inoremap "" ""<ESC>i
-	nnoremap <SPACE>; A;<ESC>
-
+	imap `in #include <ESC>a
+	imap `pr printf(""<ESC>A);<ESC>2hi
+	imap `re return;<ESC>i
 
 " Vundle
 " ------
@@ -56,7 +51,7 @@
 		Plugin 'tpope/vim-fugitive'
 		Plugin 'airblade/vim-gitgutter'
 		Plugin 'morhetz/gruvbox'
-		Plugin 'yuttie/comfortable-motion.vim'
+		"Plugin 'yuttie/comfortable-motion.vim'
 		Plugin 'scrooloose/nerdtree'
 		Plugin 'majutsushi/tagbar'
 
@@ -70,10 +65,7 @@
 	set background=dark
 	hi Normal guibg=NONE ctermbg=NONE
 
-
-" NOTE
-" ----
-"	[1]	When the cursor in terminal, press <C-W>N switch to edit mode
-"		and press i switch to normal mode in termnial.
-
-"	[2]	...
+" comfortable-motion
+	"let g:comfortable_motion_interval = 1.0
+	"let g:comfortable_motion_friction = 80.0
+	"let g:comfortable_motion_air_drag = 2.0
