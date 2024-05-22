@@ -1,5 +1,6 @@
 " SET
 " ---
+	syntax on
 	set number
 	set relativenumber
 	set ruler
@@ -14,7 +15,7 @@
 	set cursorline
 	"set cursorcolumn
 	set incsearch
-	set termwinsize=10x0	" {row}x{column}
+	set termwinsize=10*0	" {row}*{column}
 	"set nowrap		" To display long lines as just one line
 
 	":silent !ctags -R /usr/src/linux-headers-6.2.0-26-generic .
