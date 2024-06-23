@@ -6,17 +6,17 @@
 	set ruler
 	set autowrite
 	set showcmd
-
-	"set tabstop=2
-	"set shiftwidth=2
-
 	set list
 	set listchars=tab:\|\ ,trail:$,extends:>,precedes:<
-	set cursorline
+	"set cursorline
 	"set cursorcolumn
 	set incsearch
 	set termwinsize=10*0	" {row}*{column}
 	"set nowrap		" To display long lines as just one line
+	autocmd FileType python setlocal autoindent shiftwidth=4 tabstop=4
+	autocmd FileType css setlocal autoindent shiftwidth=2 tabstop=2 expandtab
+	autocmd FileType html setlocal autoindent shiftwidth=2 tabstop=2 expandtab
+	autocmd FileType javascript setlocal autoindent shiftwidth=2 tabstop=2 expandtab
 
 	":silent !ctags -R /usr/src/linux-headers-6.2.0-26-generic .
 	set tags=./tags
@@ -54,6 +54,7 @@
 		Plugin 'morhetz/gruvbox'
 		"Plugin 'yuttie/comfortable-motion.vim'
 		Plugin 'scrooloose/nerdtree'
+		Plugin 'mattn/emmet-vim'
 		Plugin 'majutsushi/tagbar'
 
 	call vundle#end()
@@ -61,10 +62,11 @@
 
 " gruvbox
 " -------
+	colorscheme desert
 	"let g:gruvbox_italic=0
-	colorscheme gruvbox
-	set background=dark
-	hi Normal guibg=NONE ctermbg=NONE
+	"colorscheme gruvbox
+	"set background=dark
+	"hi Normal guibg=NONE ctermbg=NONE
 
 " comfortable-motion
 	"let g:comfortable_motion_interval = 1.0
